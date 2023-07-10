@@ -15,7 +15,9 @@ export class CinemaService {
 
   async getCinema(cinemaNo: Number) : Promise<Cinema[]> {
     return await this.cinemaRepository.createQueryBuilder("cinema")
-    .leftJoinAndSelect("cinema.seats", "seats").getMany()
+    .leftJoinAndSelect("cinema.seats", "seats").where({
+        "id": cinemaNo
+    }).getMany()
 
   }
 }

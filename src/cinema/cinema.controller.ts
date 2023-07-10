@@ -31,7 +31,7 @@ export class CinemaController {
   ) {
     const cinema = await this.cinemaService.getCinema(id);
     return res.status(200).json({
-        cinema: cinema,
+        cinema: cinema.length > 0 ? cinema[0] : {},
     })
   }
 
@@ -61,15 +61,15 @@ export class CinemaController {
   ){
     const book = await this.seatsService.bookMultipleSeats(seatNos, cinema_no)
     if(book) {
-        return res.status(40).json({
-           message: "Specifed seats are not currently available"
-        })
-    }else {
         const cinema =  await this.cinemaService.getCinema(cinema_no);
         return res.status(200).json({
             message: "Specifed seats are successfully booked",
-            cinema: cinema,
+            cinema: cinema[0],
         })
+    }else {
+        return res.status(400).json({
+            message: "Specifed seats are not currently available"
+         })
     }
   }
 }

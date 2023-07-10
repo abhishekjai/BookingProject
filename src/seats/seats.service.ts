@@ -41,6 +41,7 @@ export class SeatsService {
         occupied: false
     })
     .execute()
+    
   }
 
   async bookMultipleSeats(seatNosArr: Number[], cinemaNo: Number) {
