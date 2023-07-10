@@ -1,8 +1,10 @@
+```
 DATABASE_HOST=
 PORT=
 DATABASE_USER=
 DATABASE_PASS=
 DATABASE_NAME=
+```
 
 Please add this env 
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
